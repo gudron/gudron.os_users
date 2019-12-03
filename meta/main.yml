@@ -1,0 +1,54 @@
+galaxy_info:
+  author: Alex V Kotelnikov 
+  description: Meta package for manage os users/groups. users, users shells, groups
+  license: Apache
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - 18.04
+        - 16.04
+    - name: Debian
+      versions:
+        - 8.0
+        - 9.0 
+
+  galaxy_tags:
+    - users
+    - groups
+    - user shell
+    - linux users
+    - linux groups
+    - manage linux users
+    - manage linux groups
+    - manage linux users and groups
+    - meta package
+
+allow_duplicates: true    
+dependencies:
+  - role: gudron.os_users_manager
+    src: git@bitbucket.org:gdrn_cloud/gudron.os_users_manager.git
+    scm: git  
+    vars: 
+      users_list_params: "{{ users_list_params }}"
+      groups_list_params: "{{ groups_list_params }}"
+
+  - role: gudron.shells
+    src: git@bitbucket.org:gdrn_cloud/gudron.shells.git
+    scm: git
+    vars: 
+      to_install: "{{ users_list_params | map(attribute='shell') | map('basename') | list | unique }}"
+
+  - role: gudron.shells_preparer
+    src: git@bitbucket.org:gdrn_cloud/gudron.shells_preparer.git
+    scm: git
+    vars: 
+      to_prepare: "{{ users_list_params | mapattributes(['name', 'shell', 'shell_params']) }}"
+
+  - role: gudron.sudo
+    src: git@bitbucket.org:gdrn_cloud/gudron.sudo.git
+    scm: git
+    vars:
+      users_list_params: "{{ users_list_params | selectattr('is_sudo', 'equalto', True) }}"
