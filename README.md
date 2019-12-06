@@ -50,6 +50,7 @@ Example Playbook
                 ssh:
                   keys:
                     - priv: /path/to/existen/ssh/key/ansible_example.pem
+                      pub: /path/to/existen/ssh/key/ansible_example.pem.pub
                       comment: ansible_example
             groups_list_params:
               - name: example_group1
