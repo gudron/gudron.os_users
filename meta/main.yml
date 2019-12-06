@@ -1,6 +1,6 @@
 galaxy_info:
   author: Alex V Kotelnikov 
-  description: Meta package for manage os users/groups. users, users shells, groups
+  description: Meta-role for manage operation system users/groups. users, users shells
   license: Apache
 
   min_ansible_version: 2.4
@@ -29,26 +29,26 @@ galaxy_info:
 allow_duplicates: true    
 dependencies:
   - role: gudron.os_users_manager
-    src: git@bitbucket.org:gdrn_cloud/gudron.os_users_manager.git
+    src: git@github.com:gudron/gudron.os_users_manager.git
     scm: git  
     vars: 
       users_list_params: "{{ users_list_params }}"
       groups_list_params: "{{ groups_list_params }}"
 
   - role: gudron.shells
-    src: git@bitbucket.org:gdrn_cloud/gudron.shells.git
+    src: git@github.com:gudron/gudron.shells.git
     scm: git
     vars: 
       to_install: "{{ users_list_params | map(attribute='shell') | map('basename') | list | unique }}"
 
   - role: gudron.shells_preparer
-    src: git@bitbucket.org:gdrn_cloud/gudron.shells_preparer.git
+    src: git@github.com:gudron/gudron.shells_preparer.git
     scm: git
     vars: 
       to_prepare: "{{ users_list_params | mapattributes(['name', 'shell', 'shell_params']) }}"
 
   - role: gudron.sudo
-    src: git@bitbucket.org:gdrn_cloud/gudron.sudo.git
+    src: git@github.com:gudron/gudron.sudo.git
     scm: git
     vars:
       users_list_params: "{{ users_list_params | selectattr('is_sudo', 'equalto', True) }}"
