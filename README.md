@@ -13,6 +13,10 @@ Role Variables
 
     Supported parameters: [defaults/main.yml](defaults/main.yml).
 
+    This values passed *as is* to `gudron.os_users_manager` role. 
+    
+    For getting more information about user variables check [gudron.os_users_manager](https://github.com/gudron/gudron.os_users_manager/blob/master/README.md) role documentation.
+
   * `groups_list_params: list`
     List of groups parameters.
 
