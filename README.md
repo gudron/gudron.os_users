@@ -22,7 +22,7 @@ Role Variables
 Dependencies
 ------------
 
-  * gudron.os_users_manager - [Role for manage os users and groups](https://github.com/gudron/gudron.os_users_manager)
+  * gudron.os_users_manager - [Role for manage operation system users and groups](https://github.com/gudron/gudron.os_users_manager)
   * gudron.shells - [Roles for install shells](https://github.com/gudron/gudron.shells)
   * gudron.shells_preparer - [Role for preprare user shell environment](https://github.com/gudron/gudron.shells_preparer)
   * gudron.sudo - [Role for install sudo package and manage sudo privelegies](https://github.com/gudron/gudron.sudo)
