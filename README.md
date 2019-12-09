@@ -46,6 +46,7 @@ Install roles via **ansible-galaxy** tool.
 
 ```bash
 ansible-galaxy install -p roles -r requirements.yml
+```
 
 Example Playbook
 ----------------
