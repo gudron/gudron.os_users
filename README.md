@@ -1,7 +1,7 @@
 gudron.os_users
-=========
+===============
 
-Meta-role for manage operation system users/groups. users, users shells.
+Ansible meta-role for manage operation system users/groups. users, users shells
 
 Role Variables
 --------------
@@ -20,7 +20,7 @@ Role Variables
   * `groups_list_params: list`
     List of groups parameters.
 
-    Supported parameters: [defaults/main.yml](defaults/main.yml).
+  Supported parameters: [defaults/main.yml](defaults/main.yml).
 
 
 Dependencies
@@ -30,6 +30,22 @@ Dependencies
   * gudron.shells - [Roles for install shells](https://github.com/gudron/gudron.shells)
   * gudron.shells_preparer - [Role for preprare user shell environment](https://github.com/gudron/gudron.shells_preparer)
   * gudron.sudo - [Role for install sudo package and manage sudo privelegies](https://github.com/gudron/gudron.sudo)
+
+Instalation
+-----------
+
+Add **gudron.os_users** role to your *requirements* file.
+
+```yaml
+  - src: git@github.com:gudron/gudron.os_users.git
+    scm: git
+    version: master
+```
+
+Install roles via **ansible-galaxy** tool.
+
+```bash
+ansible-galaxy install -p roles -r requirements.yml
 
 Example Playbook
 ----------------
@@ -63,4 +79,4 @@ Example Playbook
 License
 -------
 
-Apache
+Apache 2.0

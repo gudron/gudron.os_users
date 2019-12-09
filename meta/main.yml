@@ -1,7 +1,7 @@
 galaxy_info:
   author: Alex V Kotelnikov 
-  description: Meta-role for manage operation system users/groups. users, users shells
-  license: Apache
+  description: Ansible meta-role for manage operation system users/groups. users, users shells
+  license: Apache 2.0
 
   min_ansible_version: 2.4
 
