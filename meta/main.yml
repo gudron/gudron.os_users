@@ -41,16 +41,16 @@ dependencies:
     src: git@github.com:gudron/gudron.shells.git
     scm: git
     vars: 
-      to_install: "{{ users_list_params | map(attribute='shell') | map('basename') | list | unique }}"
+      to_install: "{{ users_list | map(attribute='shell') | map('basename') | list | unique }}"
 
   - role: gudron.shells_preparer
     src: git@github.com:gudron/gudron.shells_preparer.git
     scm: git
     vars: 
-      to_prepare: "{{ users_list_params | mapattributes(['name', 'shell', 'shell_params']) }}"
+      to_prepare: "{{ users_list | mapattributes(['name', 'shell', 'shell_params']) }}"
 
   - role: gudron.sudo
     src: git@github.com:gudron/gudron.sudo.git
     scm: git
     vars:
-      users_list_params: "{{ users_list_params | selectattr('is_sudo', 'equalto', True) }}"
+      users_list_params: "{{ users_list | selectattr('is_sudo', 'equalto', True) }}"
