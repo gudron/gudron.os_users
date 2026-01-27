@@ -8,6 +8,8 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
+        - 22.04
+        - 20.04
         - 18.04
         - 16.04
     - name: Debian
@@ -32,8 +34,8 @@ dependencies:
     src: git@github.com:gudron/gudron.os_users_manager.git
     scm: git  
     vars: 
-      users_list_params: "{{ users_list_params }}"
-      groups_list_params: "{{ groups_list_params }}"
+      users_list_params: "{{ users_list }}"
+      groups_list_params: "{{ groups_list }}"
 
   - role: gudron.shells
     src: git@github.com:gudron/gudron.shells.git

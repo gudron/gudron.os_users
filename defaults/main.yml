@@ -1,8 +1,8 @@
 ---
-groups_list_params:
+groups_list:
   - name: example_group
 
-users_list_params:
+users_list:
   - name: example_user
     is_sudo: true
     no_pwd_sudo: true
